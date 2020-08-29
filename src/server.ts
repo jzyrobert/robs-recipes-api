@@ -6,17 +6,21 @@ import * as bodyParser from 'body-parser';
 import "./api/models/recipeModel"
 import recipeRoutes from "./api/routes/recipeRoute"
 
+const mongoURL = process.env.MONGODB || "localhost:27017"
+const port = process.env.PORT || 3000;
+
+console.log("Connecting to mongodb at " + mongoURL)
+
 require('mongoose').Promise = global.Promise;
 set('useFindAndModify', false);
 connect(
-  'mongodb://localhost:27017/robsRecipes',
+  `mongodb://${mongoURL}/robsRecipes`,
   {
     useNewUrlParser: true,
     useUnifiedTopology: true
   }
 );
 
-const port = process.env.PORT || 3000;
 const app = express();
 
 const options: cors.CorsOptions = {
