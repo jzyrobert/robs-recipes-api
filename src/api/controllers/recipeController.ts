@@ -1,5 +1,5 @@
 import { model } from "mongoose"
-import { IRecipe } from "../interfaces";
+import { IRecipe } from "../models/recipeModel";
 import { Request, Response } from "express"
 const recipe = model<IRecipe>('recipe');
 

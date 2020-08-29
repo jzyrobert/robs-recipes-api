@@ -1,5 +1,8 @@
-import { model, Schema } from "mongoose";
-import { IRecipe } from "../interfaces";
+import { model, Schema, Document } from "mongoose";
+
+export interface IRecipe extends Document {
+    name: string;
+}
 
 const recipeSchema: Schema = new Schema(
   {
